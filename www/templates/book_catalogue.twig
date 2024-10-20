@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block title %}Book Catalogue{% endblock %}
+
+{% block content %}
+    <h1> Book Catalogue </h1>
+    <br/>
+    {% if books is not null %}
+        <ul>
+            {% for book in books %}
+                <h3> {{ book.title() }} </h3>
+                <a class="list_image" href="/catalogue/{{ book.id() }}">
+                    <img src="{{ book.url() }}" onerror="this.onerror=null; this.src='/assets/images/book-placeholder.jpg'">
+                </a>
+                <br/>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <br/> <br/> <br/>
+
+    <h2>Add book to catalogue</h2>
+    <h3>Full form</h3> <br/>
+    <form method="POST">
+    Title: <input type="text" name="title">
+    <br /><br />
+    Author: <input type="text" name="author">
+    <br /><br />
+    Description: <input type="text" name="description">
+    <br /><br />
+    Number of pages: <input type="number" name="num_pages">
+    <br /><br />
+    URL: <input type="text" name="url">
+    <br />
+    <button type="submit" name="full_form" value="Send">Add book</button>
+    </form>
+
+    <br /><br />
+    <h3>Import form</h3> <br/>
+    <form method="POST">
+    Book ISBN: <input type="text" name="book_isbn">
+    <br />
+    <button type="submit" name="import_form" value="Send">Add book</button>
+    </form>
+    <br /><br />
+{% endblock %}

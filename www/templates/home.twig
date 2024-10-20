@@ -1,0 +1,38 @@
+{% extends "base.twig" %}
+
+{% block title %}Bookworm{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="assets/css/home.css"/>
+{% endblock %}
+
+{% block content %}
+    <div class="landing-page">
+        <header class="top-section">
+            <h1>Welcome to Bookworm</h1>
+            <p>Your one-stop platform to rate, review and discuss books.</p>
+        </header>
+
+        <section class="features-section">
+            <h2>Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Extensive Catalogue</h3>
+                    <p>Explore a vast collection of books across various genres and authors.</p>
+                </div>
+                <div class="feature">
+                    <h3>Rate and Review</h3>
+                    <p>Share your thoughts and rate books to help others find their next read.</p>
+                </div>
+                <div class="feature">
+                    <h3>Community Forum</h3>
+                    <p>Join discussions, share recommendations and connect with fellow book lovers.</p>
+                </div>
+            </div>
+        </section>
+        <section class="about-section">
+            <h2>About Bookworm</h2>
+            <p>Bookworm is a community-driven platform where book enthusiasts can find, rate, review and discuss their favorite books. Whether you're looking for your next great read or want to share your insights on a recent find, Bookworm is here to foster your love for books.</p>
+        </section>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.twig" %}
+
+{% block title %}Book Details{% endblock %}
+
+{% block content %}
+    {% if book is null %}
+        <h2> There is no book by this id </h2>
+    {% else %}
+        <h2> {{ book.title() }} </h2> <br/>
+        <img class="book_description_image" src="{{ book.url() }}" onerror="this.onerror=null; this.src='/assets/images/book-placeholder.jpg'"> <br/>
+        <h3> Author: {{ book.author() }} </h3> <br/>
+        <p> Description: {{ book.description }} </p> <br/>
+        <p> Rating: {{ averageRating }} </p> <br/>
+
+        <form id="put_rating_form" method="POST">
+            Rate this book: <input type="number" name="rating">
+            <button type="submit" name="put_rating" value="Send">Rate</button>
+        </form>
+        <br/>
+        {% if rated %}
+            <form id="delete_rating_form" method="POST">
+                <button type="submit" name="delete_rating" value="Send">Remove your rating</button>
+            </form>
+        {% endif %}
+        <br/> <br/>
+        <form id="put_review_form" method="POST">
+            Leave your review <input type="text" name="review">
+            <button type="submit" name="put_rating" value="Send">Review</button>
+        </form>
+        <br/>
+        {% if reviewed %}
+            <form id="delete_review_form" method="POST">
+                <button type="submit" name="delete_review" value="Send">Remove your review</button>
+            </form>
+        {% endif %}
+        
+        <br/> <h2> Reviews: </h2>
+        {% for review in reviews %}
+            <p> Review: {{ review }} </p> 
+        {% endfor %}
+    {% endif %}
+    <script src="/assets/js/formMethodChange.js"></script>
+{% endblock %}

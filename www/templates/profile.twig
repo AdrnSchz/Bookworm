@@ -1,0 +1,46 @@
+{% extends 'base.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="/assets/css/profile.css"/>
+    <h1>Profile</h1>
+    {% if notifications is not empty %}
+        <ol>
+            {% for notification in notifications %}
+                <p data-cy="sign-in__message" style="color: red;">{{ notification }}</p>
+            {% endfor %}
+        </ol>
+    {% endif %}
+
+    <div class="profile-container">
+        <div class="profile-picture">
+            {% if user.profile_picture %}
+                <img src="{{ '/uploads/' ~ user.profile_picture }}" alt="Profile picture">
+            {% else %}
+                <img src="/assets/images/default.jpg" alt="Profile picture">
+            {% endif %}
+        </div>
+
+        <div class="profile-form">
+            <form data-cy="profile" action="{{ formAction }}" method="{{ formMethod }}" accept-charset="utf-8" enctype="multipart/form-data">
+                <label for="email">Email:</label>
+                <input data-cy="profile__email" type="text" id="email" name="email" value="{{ user.email }}" disabled>
+                <br>
+                <label for="username">Username:</label>
+                <input data-cy="profile__username" type="text" id="username" name="username" value="{{ user.username }}">
+                {% if formErrors.username %}
+                    <p style="color: red;">{{ formErrors.username }}</p>
+                {% endif %}
+                <br>
+                <label for="profilePicture">Profile Picture:</label>
+                <input data-cy="profile__picture" type="file" id="profilePicture" name="profilePicture">
+                {% if formErrors.picture %}
+                    <p style="color: red;">{{ formErrors.picture }}</p>
+                {% endif %}
+                <br>
+                <input data-cy="profile__btn" type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+{% endblock %}

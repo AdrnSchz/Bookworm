@@ -1,0 +1,26 @@
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.profile-picture {
+    width: 18%;
+    max-width: 200px;
+    height: auto;
+    margin-top: 1.7%;
+    margin-right: -16%;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: auto;
+    border-radius: 30%;
+    overflow: hidden;
+}
+
+.profile-form {
+    width: 80%;
+    margin-right: -15%;
+}

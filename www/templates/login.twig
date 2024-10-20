@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% block title %}Bookworm{% endblock %}
+
+{% block content %}
+    <h1>Login</h1>
+    {% if notifications is not empty %}
+        <ol>
+            {% for notification in notifications %}
+                <p data-cy="sign-in__message" style="color: red;">{{ notification }}</p>
+            {% endfor %}
+        </ol>
+    {% endif %}
+    <form data-cy="sign-in" action="{{ formAction }}" method="{{ formMethod }}" accept-charset="utf-8">
+        <label for="email">Email:</label>
+        <input data-cy="sign-in__email" type="text" id="email" name="email" value="{% if formData.email %}{{ formData.email }}{% endif %}" required>
+        <br>
+        <label for="password">Password:</label>
+        <input data-cy="sign-in__password" type="password" id="password" name="password" required>
+        <br>
+        <input data-cy="sign-in__btn" type="submit" value="Sign In">
+    </form>
+    {% if formErrors.login %}
+        <p style="color: red;">{{ formErrors.login }}</p>
+    {% endif %}
+{% endblock %}

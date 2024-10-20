@@ -1,0 +1,25 @@
+{% extends 'base.twig' %}
+
+{% block title %}Bookworm{% endblock %}
+
+{% block content %}
+    <h1>Sign Up</h1>
+    <form data-cy="sign-up" action="{{ formAction }}" method="{{ formMethod }}" accept-charset="utf-8">
+        <label for="email">Email:</label>
+        <input data-cy="sign-up__email" type="text" id="email" name="email" value="{% if formData.email %}{{ formData.email }}{% endif %}" required>
+        <label for="password">Password:</label>
+        <input data-cy="sign-up__password" type="password" id="password" name="password" required>
+        <label for="repeatPassword">Repeat Password:</label>
+        <input data-cy="sign-up__repeatPassword" type="password" id="repeatPassword" name="repeatPassword" required>
+        <input data-cy="sign-up__btn" type="submit" value="Sign Up">
+    </form>
+    {% if formErrors.email %}
+        <p style="color: red;">{{ formErrors.email }}</p>
+    {% endif %}
+    {% if formErrors.password %}
+        <p style="color: red;">{{ formErrors.password }}</p>
+    {% endif %}
+    {% if formErrors.save %}
+        <p style="color: red;">{{ formErrors.save }}</p>
+    {% endif %}
+{% endblock %}

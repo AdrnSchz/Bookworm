@@ -1,0 +1,48 @@
+html, body {
+    height: 100%;
+}
+
+.landing-page {
+    min-height: 100%;
+    background: url('../images/wall2.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.top-section {
+    padding: 1% 10%;
+}
+
+.features-section {
+    padding: 1% 10%;
+}
+
+.about-section {
+    padding: 1% 15%;
+}
+
+.top-section h1 {
+    font-size: 3em;
+    color: antiquewhite;
+}
+
+h2 {
+    color: antiquewhite;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature {
+    max-width: 23%;
+    margin: 1%;
+    padding: 1%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: rgba(250, 235, 215, 0.8);
+    color: #000000;
+
+}

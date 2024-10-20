@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block title %}Discussion Forums{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/forum.css"/>
+    <script src="/assets/js/handleForumPost.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <h2 id="title"></h2>
+    <h3 id="description"></h3>
+
+    <br/>
+
+    <form id="create-post-form">
+        <label for="title">Title</label>
+        <input id="title" type="text" name="title" required>
+        <label for="contents">Contents</label>
+        <input id="contents" type="text" name="contents">
+        <input id="forumId" type="hidden" name="forumId">
+        <input id="userId" type="hidden" value="{{user.id}}" name="userId">
+        <br/>
+        <button type="submit" name="create-post" value="Create">Create</button>
+    </form>
+
+    <br/>
+
+    <div id="post-list">
+    </div>
+{% endblock %}
